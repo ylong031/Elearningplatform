@@ -1,0 +1,36 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<h2>All Users</h2>
+<br>
+   
+    {% for user in allusers %}
+        
+            {% if user.is_teacher %}
+            <div class="teachers">
+            <h6>{{ user }} (Teacher)</h6>
+            <h6>Status:{{user.status}}<h6>
+            </div>        
+            {% elif not user.is_teacher %}
+            <div class="students">
+                <h6>{{ user }} (Student)</h6>
+                <h6>Status:{{user.status}}<h6>
+                <h6>Courses Enrolled:</h6>   
+                {% for course in user.courses_enrolled.all%}
+                    {{course}} /
+
+                {% endfor %}
+            </div>
+            {% endif%}
+
+        
+           
+        
+    {% endfor %}
+
+  
+
+
+
+{% endblock %}

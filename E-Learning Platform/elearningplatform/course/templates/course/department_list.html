@@ -1,0 +1,17 @@
+{% extends "./base.html" %}
+
+{% block content %}
+        <h2>Departments</h2>
+      
+        {% for department in departments %}
+        <div class="department">
+            <h5>{{ department.title }}</h5>
+            <a href="{% url 'course_list' department.id %}">View Courses</a><br><br>
+            <h6>{{department.description}}</h6>
+        </div>
+        {% endfor %}
+        
+        
+    </body>
+
+{% endblock %}

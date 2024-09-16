@@ -1,0 +1,67 @@
+
+
+
+{% extends "./base.html" %}
+
+{% block content %}
+    <h2>{{ department.title }}</h2>
+   
+    
+    <!-- student -->
+    {% if user.is_authenticated and not user.appuser.is_teacher  %}
+    <a href="/chat">Start Chat</a><br>
+        {% for course in courses %}
+        <div class="course">
+            <h5>Course: {{ course.title }}</h5>
+            <h5>Created By: {{ course.user }}</h5>
+            {% for courseEnrolled in user.appuser.courses_enrolled.all %}
+                {% if course == courseEnrolled %}
+                    <a href="{% url 'content_list' course.id %}">View Content</a><br>
+                    <a href="{% url 'feedback_list' course.id %}">View Feedback</a><br>
+                    <a href="/create_feedback/{{course.id}}">Create Feedback</a>
+                {% endif %}
+            {% endfor %}
+            {% if course not in user.appuser.courses_enrolled.all %}
+                <a href="/enrol/course/{{ course.id }}">Enrol Course</a><br>
+            {% endif %}
+            
+        </div>
+        <br>
+        {% endfor %}
+          
+    <!-- teacher -->
+    {% elif user.is_authenticated and user.appuser.is_teacher %}
+        <a href="/create_course/{{department.id}}">Create Course</a><br>
+        <a href="/chat">Start Chat</a><br>
+        {% for course in courses %}
+            <div class="course">
+                <h5>Course: {{ course.title }}</h5>
+                <h5>Created By: {{ course.user }}</h5>
+                <a href="{% url 'content_list' course.id %}">View Content</a><br>
+                <a href="/delete/course/{{course.id}}">Delete Course</a><br>
+                <a href="/update/course/{{course.id}}">Update Course</a><br>
+                <a href="/studentsEnrolled/{{course.id}}">Students Enrolled In Course</a>
+            </div><br>
+        {% endfor %}
+        
+    <!-- public -->
+    {% else %}
+        {% for course in courses %}
+        <div class="course">
+            <h5>Course: {{ course.title }}</h5>
+            <h5>Created By: {{ course.user }}</h5>
+        </div><br>
+        {% endfor %}
+    {% endif %}
+
+
+   
+
+
+    <br>
+  
+{% endblock %}
+
+
+
+    

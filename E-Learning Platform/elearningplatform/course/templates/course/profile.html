@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% block content %}
+
+    
+<table style="width:100%">
+    <tr>
+      <th>User:</th>
+      <td>{{user.appuser.user}}</td>
+    </tr>
+    <tr>
+    
+        {% if user.appuser.profilePic %}
+        <tr>
+            <th>Profile Picture:</th>
+            <td><img src="{{ user.appuser.profilePic.url }}" height="235" width="235"></td>
+        </tr>
+        {% endif %}
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+        <th>Mobile Number:</th>
+        <td>{{user.appuser.mobileNumber}}</td>
+      </tr>
+  </table>
+  <a href="/update/status/{{ user.appuser.id }}">Update Status</a><br>
+
+{% endblock %}

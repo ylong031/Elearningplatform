@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<h2>{{ course.title }}</h2> 
+{% if user.is_authenticated and user.appuser.is_teacher %}
+<a href="/create_content/{{course.id}}">Create Content</a>
+{% endif %}
+<br>
+    {% for content in content %}
+    <div class="coursecontent">
+        <h4>Content : {{ content.title }}</h4>
+          
+        <a href="{{ content.file.url }}">{{ content.title }}</a>
+        <br>
+        {% if user.is_authenticated and user.appuser.is_teacher %}
+        <a href="/delete/content/{{content.id}}">Delete Content</a>
+        <br>
+        <a href="/update/content/{{content.id}}">Update Content</a>
+        {% endif %}
+    </div><br>
+    {% endfor %}
+<br>
+  
+
+
+
+{% endblock %}

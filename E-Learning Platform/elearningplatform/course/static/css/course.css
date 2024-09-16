@@ -1,0 +1,117 @@
+body {
+    font-family: Sans-Serif;
+    margin: 10px;
+    border: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+   }
+   h2{
+    text-align: center;
+      
+   }
+
+   h1
+   {
+    font-weight: bolder;
+
+   }
+
+   h5{
+    font-weight: bold;
+   }
+
+
+   .department {
+    display:inline-block;
+    text-align: center;
+    margin:20px;
+    padding:10px;
+    width:250px;
+    height:250px;
+    background-color:#e1d2e7;
+    border:1px solid #000000;
+    margin-left: 5%;
+
+    
+    }
+
+
+    .teachers
+    {
+        background-color: rgb(216, 238, 177);
+        padding: 10px;
+        border: 1px solid green ;
+    }
+    .students
+    {
+        background-color: rgb(167, 196, 211);
+        padding: 10px;
+        border: 1px solid green ;
+    }
+
+    .feedback
+    {
+        background-color: rgb(238, 177, 181);
+        padding: 10px;
+        border: 1px solid green ;
+    }
+
+    .coursecontent
+    {
+        background-color: rgb(255, 243, 224);
+        padding: 10px;
+        border: 1px solid green ;
+    }
+
+    .course 
+    {
+        background-color: rgb(203, 248, 233);
+        padding: 10px;
+        border: 1px solid green ;
+    }
+    table, th, td {
+        margin: 10px;
+        border: 1px solid;
+        text-align: center;
+      }
+
+   
+
+   #navigation{
+    width: 100%;
+    background-color: #20639b;
+    color: #ffffff;
+    padding: 10px;
+   }
+   
+   #footer{ 
+    position:fixed;
+    bottom:0px;
+    color: #ffffff;
+    background-color: #20639b;
+    padding-left: 10px;
+    margin-top: 20px; 
+    width: 100%;
+    float: left;
+   }
+   
+  
+   #navigation a{
+    color:white;
+    padding: 10px;
+    display:inline
+}
+   
+   #header{
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    height: 70px;
+    background-color: #f7bd0ed4;
+   }
+
+   /* .content{
+    padding-left: 20px;
+    float: left;
+   } */
